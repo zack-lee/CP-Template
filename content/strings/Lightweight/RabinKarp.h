@@ -6,10 +6,10 @@
  */
 
 template<int SZ> struct rabinKarp {
-    const ll mods[3] = {1000000007, 999119999, 1000992299};
-    ll p[3][SZ];
-    ll h[3][SZ];
-    const ll base = 1000696969;
+    const int mods[3] = {1000000007, 999119999, 1000992299};
+    int p[3][SZ];
+    int h[3][SZ];
+    const int base = 1000696969;
     rabinKarp() {}
     void build(string a) {
         M00(i, 3) {
@@ -21,9 +21,10 @@ template<int SZ> struct rabinKarp {
             }
         }
     }
-    tuple<ll, ll, ll> hsh(int a, int b) {
+	//inclusive [a,b]
+    tuple<int, int, int> hsh(int a, int b) {
         if(a == 0) return make_tuple(h[0][b], h[1][b], h[2][b]);
-        tuple<ll, ll, ll> ans;
+        tuple<int, int, int> ans;
         get<0>(ans) = (((h[0][b] - h[0][a-1]*p[0][b-a+1]) % base) + base) % base;
         get<1>(ans) = (((h[1][b] - h[1][a-1]*p[1][b-a+1]) % base) + base) % base;
         get<2>(ans) = (((h[2][b] - h[2][a-1]*p[2][b-a+1]) % base) + base) % base;
