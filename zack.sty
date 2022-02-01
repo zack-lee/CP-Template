@@ -1,0 +1,125 @@
+mports
+\usepackage{fancyhdr, extramarks, amsmath, amsthm, amssymb, amsfonts, tikz, enumitem}
+
+
+
+\providecommand{\abs}[1]{\left\vert#1\right\vert}
+\providecommand{\norm}[1]{\left\Vert#1\right\Vert}
+\providecommand{\pnorm}[2]{\left\Vert#1\right\Vert_{L^{#2}}}
+
+\providecommand{\Rn}[1]{\mathbb{R}^{#1}}
+\providecommand{\intrn}[1]{\int_{\Rn{n}}#1 \,dx}
+\providecommand{\csubset}{\subset\subset}
+
+\providecommand{\ip}[1]{\left(#1 \right)}
+\providecommand{\br}[1]{\langle #1 \rangle}
+
+\providecommand{\ns}[1]{\norm{#1}^2}
+\providecommand{\pns}[2]{\norm{#1}^2_{L^{#2}}}
+ 
+\providecommand{\jump}[1]{\left\llbracket #1 \right\rrbracket }
+
+\def\ep{\epsilon}
+\def\wstar{\overset{*}{\rightharpoonup}}
+\def\nab{\nabla}
+\def\dt{\partial_t}
+\def\ep{\varepsilon}
+\def\vchi{\text{\large{$\chi$}}}
+\def\ls{\lesssim} %leq but sim 
+\def\p{\partial}
+\def\db{\bar{D}}
+\def\da{\Delta_{\mathcal{A}}}
+
+\def\Xmod{X/\mspace{-2mu}\simeq } %maybe useful???
+
+
+
+%math letters
+\def\a{\mathcal{A}}
+\def\b{\mathcal{B}}
+\def\c{\mathcal{C}}
+\def\f{\mathcal{F}}
+\def\g{\mathcal{G}}
+\def\h{\mathcal{H}}
+\def\i{\mathcal{I}}
+\def\n{\mathcal{N}}
+\def\x{\mathcal{X}}
+\def\y{\mathcal{Y}}
+\def\z{\mathcal{Z}}
+\def\t{\mathcal{T}}
+
+\def\A{\mathbb{A}}
+\def\C{\mathbb{C}}
+\def\D{\mathbb{D}}
+\def\E{\mathbb{E}}
+\def\F{\mathbb{F}}
+\def\K{\mathbb{K}}
+\def\N{\mathbb{N}}
+\def\P{\mathbb{P}}
+\def\Q{\mathbb{Q}}
+\def\R{\mathbb{R}}
+\def\Z{\mathbb{Z}}
+
+\def\hf{\mathfrak{H}}
+\def\ff{\mathfrak{F}}
+\def\lf{\mathfrak{L}}
+\def\bf{\mathfrak{B}}
+\def\mf{\mathfrak{M}}
+\def\pf{\mathfrak{P}}
+
+
+\def\G{\mathcal{G}}
+\def\L{\mathcal{L}}
+
+\def\sr{\riem}
+ 
+\def\X{\mathbf{X}}
+
+\def\st{\;\vert\;}
+
+%avg integral
+\def\Xint#1{\mathchoice
+{\XXint\displaystyle\textstyle{#1}}%
+{\XXint\textstyle\scriptstyle{#1}}%
+{\XXint\scriptstyle\scriptscriptstyle{#1}}%
+{\XXint\scriptscriptstyle\scriptscriptstyle{#1}}%
+\!\int}
+\def\XXint#1#2#3{{\setbox0=\hbox{$#1{#2#3}{\int}$ }
+\vcenter{\hbox{$#2#3$ }}\kern-.6\wd0}}
+\def\intbar{\Xint-}
+
+%upper and lower ints
+\def\uint{\mathchoice%
+    {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu}%
+    {\mkern7mu\overline{\vphantom{\intop}\mkern7mu}\mkern-14mu}%
+    {\mkern7mu\overline{\vphantom{\intop}\mkern7mu}\mkern-14mu}%
+    {\mkern7mu\overline{\vphantom{\intop}\mkern7mu}\mkern-14mu}%
+  \int}
+\def\lint{\mkern3mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu\int}
+
+%%% Need to add argmax/argmin
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\diam}{diam}
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\dist}{dist}
+\DeclareMathOperator{\card}{card}
+\DeclareMathOperator{\spn}{span}
+\DeclareMathOperator{\ran}{ran}
+\DeclareMathOperator{\hes}{Hess}
+
+\DeclareMathOperator{\curl}{curl}
+\DeclareMathOperator{\diverge}{div}
+\DeclareMathOperator{\ind}{ind}
+\DeclareMathOperator{\vol}{vol}
+\DeclareMathOperator{\IM}{Im}
+\DeclareMathOperator{\RE}{Re}
+\DeclareMathOperator{\step}{Step}
+\DeclareMathOperator{\reg}{Reg}
+\DeclareMathOperator{\dst}{dst}
+\DeclareMathOperator{\cov}{Cov}
+\DeclareMathOperator{\riem}{Riem}
+\DeclareMathOperator{\leb}{Leb}
