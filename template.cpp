@@ -36,6 +36,7 @@ typedef pair<ld,ld> pd;
 typedef complex<ld> cd;
 
 typedef vector<int> vi;
+typedef vector<ld> vld;
 typedef vector<vector<int>> vvi;
 
 const ld PI = acos(-1.0);
