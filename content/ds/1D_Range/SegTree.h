@@ -7,18 +7,19 @@
  * Verification: SPOJ Fenwick
  */
 
-template<class T, int SZ> struct segtree {
-    // modify these
+template<class T> struct segtree {
     T identity = 0;
+	int SZ = 0;
     T comb(T l, T r) {
-        return l + r;
+        return gcd(l,r);
     }
     void updLeaf(T& l, T val) {
         l = val;
     }
-    
-    T tree[2*SZ+1];
-    segtree() {
+    vector<T> tree;
+    segtree(int _SZ) {
+		SZ = _SZ;
+		tree.resize(2*SZ + 1);
         M00(i, 2*SZ+1) tree[i] = identity;
     }
     void upd(int pos, T val) {
