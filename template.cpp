@@ -30,9 +30,12 @@ using namespace std;
 
 #define int long long
 
+template<class T> bool ckmin(T&a, T&b) { bool B = a > b; a = min(a,b); return B; }
+template<class T> bool ckmax(T&a, T&b) { bool B = a < b; a = max(a,b); return B; }
+
 typedef long double ld;
 typedef pair<int,int> pi;
-typedef pair<ld,ld> pd;
+typedef pair<ld,ld> pld;
 typedef complex<ld> cd;
 
 typedef vector<int> vi;
