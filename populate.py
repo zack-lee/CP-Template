@@ -7,10 +7,11 @@ from shutil import copyfile
 #1 args is make n many right there
 #2 args is make n many in directory specified
 def main():
-    f1 = '/home/zlee/CP-Template/template.cpp'
-    f2 = '/home/zlee/CP-Template/main.cpp'
+    f1 = '/root/CP-Template/template.cpp'
+    f2 = '/root/CP-Template/main.cpp'
     dirname = ""
     makedir = False
+    print(len(sys.argv))
     if len(sys.argv) == 2:
         n = int(sys.argv[1])
     elif len(sys.argv) == 3:
