@@ -72,3 +72,21 @@ int gcd(int a, int b) {
 int INV(int a) {
 	return POW(a, MOD-2);
 }
+//Global Constants and Variables here
+
+
+void solve() {
+
+}
+
+int32_t main() { FAST
+	mt19937 rng(chrono::steady_clock::now().time_since_epoch().count());
+	int N = 100'000'000;
+	int m = 3;
+	M00(i, N) {
+		dbg(i _ m);
+		if(i % 100'000 == 0) {
+			cout << i << endl;
+		}
+	}
+}

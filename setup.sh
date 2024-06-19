@@ -11,11 +11,20 @@ function setup_bashrc {
 # CP Template Start
 alias mkcpp="~/CP-Template/populate.py"
 co() {
-	g++ -std=c++17 -O2 -Wall -Wextra -pedantic -Wshadow -Wformat=2 -Wfloat-equal -Wconversion -Wlogical-op -Wshift-overflow=2 -Wduplicated-cond -Wcast-qual -Wcast-align -Wno-unused-result -Wno-sign-conversion $1.cpp -o $1 
+	g++ -std=c++17 -O2 -DDEBUG_ENABLED -Wall -Wextra -pedantic -Wshadow -Wformat=2 \
+    -Wfloat-equal -Wconversion -Wlogical-op -Wshift-overflow=2 -Wduplicated-cond \
+    -Wcast-qual -Wcast-align -Wno-unused-result -Wno-sign-conversion $1.cpp -o $1 
+}
+co_no_debug() {
+	g++ -std=c++17 -O2 -Wall -Wextra -pedantic -Wshadow -Wformat=2 \
+    -Wfloat-equal -Wconversion -Wlogical-op -Wshift-overflow=2 -Wduplicated-cond \
+    -Wcast-qual -Wcast-align -Wno-unused-result -Wno-sign-conversion $1.cpp -o $1 
 }
 run() {
     local program="$1"
-    local input_files=("${program}"*.in)   # Array of input files matching $1*.in
+    shopt -s nullglob  # Enable nullglob option to handle case with no matches
+    local input_files=("${program}"*.in)
+    echo "$input_files"
     
     if [ ${#input_files[@]} -eq 0 ]; then
         ./"$program"
@@ -35,6 +44,9 @@ run() {
 }
 crun() {
     co "$1" && echo "Compiled!" && run "$1" "$2"
+}
+ccrun() {
+    co_no_debug "$1" && echo "Compiled!" && run "$1" "$2"
 }
 up(){
     local old="$PWD"
