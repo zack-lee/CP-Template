@@ -4,11 +4,9 @@ session = "53616c7465645f5f83754461c780947c8f03f692e4ec74aca83ac23aa1cb35f8a5301
 def getday(n):
     return requests.get(f"https://adventofcode.com/2021/day/{n}/input",cookies={'session':session}).text
 
-#template
 from itertools import product as T, permutations as P, combinations as C
 import copy
-from functools import lru_cache
-# @cache line before func declaration
+from functools import cache
 
 #requires defined n/m
 def inside(x,y):
@@ -20,5 +18,4 @@ def ARR(*args):
     else:
         return [ARR(args[0], *args[2:]) for _ in R(args[1])]
 
-L = getday(WAHH).split("\n")[:-1]
-
+L = getday(1).split("\n")[:-1]

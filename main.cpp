@@ -1,7 +1,11 @@
-//Constants and Variables here
+//Global Constants and Variables here
 
+
+void solve() {
+
+}
 
 int32_t main() { FAST
 	mt19937 rng(chrono::steady_clock::now().time_since_epoch().count());
-	
+		
 }

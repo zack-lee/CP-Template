@@ -14,20 +14,37 @@ co() {
 	g++ -std=c++17 -O2 -Wall -Wextra -pedantic -Wshadow -Wformat=2 -Wfloat-equal -Wconversion -Wlogical-op -Wshift-overflow=2 -Wduplicated-cond -Wcast-qual -Wcast-align -Wno-unused-result -Wno-sign-conversion $1.cpp -o $1 
 }
 run() {
-	if [$# -eq 2]
-	then ./$1 < $1$2.in
-	else ./$1
-	fi
+    local program="$1"
+    local input_files=("${program}"*.in)   # Array of input files matching $1*.in
+    
+    if [ ${#input_files[@]} -eq 0 ]; then
+        ./"$program"
+    else
+        for input_file in "${input_files[@]}"; do
+            cat "$input_file"
+            ./"$program" < "$input_file" > "${input_file%.in}.out"
+            if [ -f "${input_file%.in}.ans" ]; then
+                diff -b "${input_file%.in}.ans" "${input_file%.in}.out" 
+            else 
+                echo "----------------------"
+                cat "${input_file%.in}.out"
+            fi
+            echo ""
+        done
+    fi
 }
 crun() {
-    co() && echo "Compiled!" && run $1 $2
+    co "$1" && echo "Compiled!" && run "$1" "$2"
 }
-up (){
+up(){
     local old="$PWD"
     for i in $(seq "${1:-1}"); do
         cd ..
     done
     OLDPWD="$old"
+}
+back() {
+    cd $OLDPWD
 }
 # CP Template End
 EOF
