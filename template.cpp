@@ -27,7 +27,7 @@ using namespace std;
 
 #ifdef DEBUG_ENABLED
 #define dbg(x) cerr << ">>> " << #x << " = " << x << endl;
-#define _<< " _ " <<
+#define _ << " _ " <<
 #else
 #define dbg(x) // Debugging is disabled, do nothing
 #endif
