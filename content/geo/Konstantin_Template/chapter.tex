@@ -1,0 +1,66 @@
+\chapter{Geometry}
+
+\section{Triangle Formulas}
+  Barycentric Coordinates
+  \begin{tabular}{|l|l|}
+    \hline
+    Centroid & $(1, 1, 1)$ \\
+    \hline
+    Circumcenter &     $( a^2(b^2+c^2-a^2), ... )$ \\
+		\hline
+    Orthocenter &      $( (a^2+b^2-c^2)(c^2+a^2-b^2), ... )$ \\
+		\hline
+    Incenter &         $( a, b, c )$ \\
+		\hline
+    Excenter-A &       $( -a, b, c )$ \\
+		\hline
+    Nagel Point &      $( s-a, s-b, s-c )$ \\
+		\hline
+    Symmedian Point &  $( a^2, b^2, c^2 )$ \\
+		\hline
+    Gergonne Point &   $( (s-b)(s-c), ... )$ \\
+		\hline
+    First Brocard Point &   $( (ca)^2, (ab)^2, (bc^2) )$ \\
+		\hline
+    Second Brocard Point &  $( (ab)^2, (bc)^2, (ca^2) )$ \\
+		\hline
+  \end{tabular}
+
+  Length of median: $\frac12\sqrt{2(b^2+c^2)-a^2}$
+  Area of triangle: $\frac12bc\sin A$, $\sqrt{s(s-a)(s-b)(s-c)}$, $\frac{abc}{4R}$
+
+\section{Geometric primitives}
+  \kactlimport{CustomComplex.h}
+  \kactlimport{GeometryPrimitives.h}
+  \kactlimport{SegmentIntersection.h}
+  \kactlimport{Lines.h}
+  %\kactlimport{linearTransformation.h}
+  \kactlimport{Angle.h}
+
+\section{Circles}
+  \kactlimport{CircleIntersection.h}
+  \kactlimport{CircleIntersectionArea.h}
+  \kactlimport{CircleTangent.h}
+  \kactlimport{CircleConvexHull.h}
+
+\section{Polygons}
+  \kactlimport{InsidePolygon.h}
+  \kactlimport{PolygonArea.h}
+  \kactlimport{PolygonCenter.h}
+  \kactlimport{PolygonCut.h}
+  \kactlimport{ConvexHull.h}
+  \kactlimport{PointInsideHull.h}
+  %\kactlimport{LineHullIntersection.h}
+
+\section{Misc. Point Set Problems}
+  \kactlimport{ClosestPair.h}
+  \kactlimport{Miniball.h}
+  %\kactlimport{kdTree.h}
+  %\kactlimport{DelaunayTriangulation.h}
+  \kactlimport{DelaunayFast.h}
+  \kactlimport{DelaunayHenry.h}
+
+\section{3D}
+  \kactlimport{Point3D.h}
+  \kactlimport{3dHull.h}
+  \kactlimport{sphericalDistance.h}
