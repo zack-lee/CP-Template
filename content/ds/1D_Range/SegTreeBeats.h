@@ -8,7 +8,7 @@
 
 template<int SZ> struct SegTreeBeats {
 	int N;
-	ll sum[2*SZ];
+	int sum[2*SZ];
 	int mx[2*SZ][2], maxCnt[2*SZ];
 
 	void pull(int ind) {
@@ -36,7 +36,7 @@ template<int SZ> struct SegTreeBeats {
 		if (L == R) return;
 		F0R(i,2) 
 			if (mx[2*ind^i][0] > mx[ind][0]) {
-				sum[2*ind^i] -= (ll)maxCnt[2*ind^i]*
+				sum[2*ind^i] -= (int)maxCnt[2*ind^i]*
 								(mx[2*ind^i][0]-mx[ind][0]);
 				mx[2*ind^i][0] = mx[ind][0];
 			}
@@ -46,7 +46,7 @@ template<int SZ> struct SegTreeBeats {
 		if (R < x || y < L || mx[ind][0] <= t) return;
 		push(ind,L,R);
 		if (x <= L && R <= y && mx[ind][1] < t) {
-			sum[ind] -= (ll)maxCnt[ind]*(mx[ind][0]-t);
+			sum[ind] -= (int)maxCnt[ind]*(mx[ind][0]-t);
 			mx[ind][0] = t;
 			return;
 		}
@@ -54,7 +54,7 @@ template<int SZ> struct SegTreeBeats {
 		int M = (L+R)/2;
 		upd(x,y,t,2*ind,L,M); upd(x,y,t,2*ind+1,M+1,R); pull(ind);
 	}
-	ll qsum(int x, int y, int ind = 1, int L = 0, int R = -1) {
+	int qsum(int x, int y, int ind = 1, int L = 0, int R = -1) {
 		if (R == -1) R += N;
 		if (R < x || y < L) return 0;
 		push(ind,L,R);

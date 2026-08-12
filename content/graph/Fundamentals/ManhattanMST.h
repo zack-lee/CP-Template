@@ -12,19 +12,19 @@
 
 int N;
 vector<array<int,3>> cur;
-vector<pair<ll,pi>> ed;
+vector<pair<int,pi>> ed;
 vi ind;
 
 struct {
 	map<int,pi> m;
 	void upd(int a, pi b) { 
-		auto it = m.lb(a);
+		auto it = m.lower_bound(a);
 		if (it != m.end() && it->s <= b) return;
 		m[a] = b; it = m.find(a);
 		while (it != m.begin() && prev(it)->s >= b) m.erase(prev(it));
 	}
 	pi query(int y) { // for all a > y find min possible value of b 
-		auto it = m.ub(y);
+		auto it = m.upper_bound(y);
 		if (it == m.end()) return {2*MOD,2*MOD};
 		return it->s;
 	}
@@ -40,12 +40,12 @@ void solve() {
 			S.upd(cur[b][1],{cur[b][2],b});
 		}
 		pi t = S.query(cur[x][1]);
-		if (t.s != 2*MOD) ed.pb({(ll)t.f-cur[x][2],{x,t.s}});
+		if (t.s != 2*MOD) ed.pb({(int)t.f-cur[x][2],{x,t.s}});
 	}
 }
 
-ll mst(vpi v) {
-	N = sz(v); cur.resz(N); ed.clear(); 
+int mst(vpi v) {
+	N = sz(v); cur.resize(N); ed.clear(); 
 	ind.clear(); F0R(i,N) ind.pb(i);
 	sort(all(ind),[&v](int a, int b) { return v[a] < v[b]; });
 	F0R(i,N-1) if (v[ind[i]] == v[ind[i+1]]) ed.pb({0,{ind[i],ind[i+1]}});

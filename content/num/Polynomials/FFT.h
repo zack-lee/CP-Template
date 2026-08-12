@@ -44,8 +44,8 @@ template<class T> void fft(vector<T>& a, const vector<T>& roots, bool inv = 0) {
 template<class T> vector<T> mult(vector<T> a, vector<T> b) {
 	int s = sz(a)+sz(b)-1, n = 1<<size(s);
 	vector<T> roots(n); genRoots(roots);
-	a.rsz(n), fft(a,roots); 
-	b.rsz(n), fft(b,roots);
+	a.resize(n), fft(a,roots); 
+	b.resize(n), fft(b,roots);
 	F0R(i,n) a[i] *= b[i];
 	fft(a,roots,1); return a;
 }

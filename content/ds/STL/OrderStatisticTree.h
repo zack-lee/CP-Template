@@ -20,7 +20,7 @@ template <class T> using Tree = tree<T, null_type, less<T>,
 void treeExample() {
 	Tree<int> t, t2; t.insert(8);
 	auto it = t.insert(10).f;
-	assert(it == t.lb(9));
+	assert(it == t.lower_bound(9));
 	assert(t.ook(10) == 1);
 	assert(t.ook(11) == 2);
 	assert(*t.fbo(0) == 8);

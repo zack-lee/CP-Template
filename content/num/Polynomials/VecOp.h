@@ -27,10 +27,10 @@ namespace VecOp {
 	}
 	
 	template<class T> vector<T>& operator+=(vector<T>& l, const vector<T>& r) {
-		l.rsz(max(sz(l),sz(r))); F0R(i,sz(r)) l[i] += r[i]; return l;
+		l.resize(max(sz(l),sz(r))); F0R(i,sz(r)) l[i] += r[i]; return l;
 	}
 	template<class T> vector<T>& operator-=(vector<T>& l, const vector<T>& r) {
-		l.rsz(max(sz(l),sz(r))); F0R(i,sz(r)) l[i] -= r[i]; return l;
+		l.resize(max(sz(l),sz(r))); F0R(i,sz(r)) l[i] -= r[i]; return l;
 	}
 	template<class T> vector<T>& operator*=(vector<T>& l, const T& r) { trav(t,l) t *= r; return l;	 }
 	template<class T> vector<T>& operator/=(vector<T>& l, const T& r) { trav(t,l) t /= r; return l; }

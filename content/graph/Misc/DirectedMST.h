@@ -11,11 +11,11 @@
 
 #include "DSUrb.h"
 
-struct Edge { int a, b; ll w; };
+struct Edge { int a, b; int w; };
 struct Node { /// lazy skew heap node
 	Edge key;
 	Node *l, *r;
-	ll delta;
+	int delta;
 	void prop() {
 		key.w += delta;
 		if (l) l->delta += delta;
@@ -33,11 +33,11 @@ Node *merge(Node *a, Node *b) {
 }
 void pop(Node*& a) { a->prop(); a = merge(a->l, a->r); }
 
-pair<ll,vi> dmst(int n, int r, const vector<Edge>& g) {
+pair<int,vi> dmst(int n, int r, const vector<Edge>& g) {
 	DSUrb dsu; dsu.init(n); // DSU with rollback if need to return edges
 	vector<Node*> heap(n); // store edges entering each vertex in increasing order of weight
 	trav(e,g) heap[e.b] = merge(heap[e.b], new Node{e});
-	ll res = 0; vi seen(n,-1); seen[r] = r; 
+	int res = 0; vi seen(n,-1); seen[r] = r;
 	vpi in(n,{-1,-1});
 	vector<pair<int,vector<Edge>>> cycs;
 	F0R(s,n) {

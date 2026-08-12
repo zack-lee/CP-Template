@@ -6,6 +6,7 @@
  */
 
 using namespace Point;
+const ld INF = 1e18;
 
 pair<P,P> solve(vP v) {
 	pair<ld,pair<P,P>> bes; bes.f = INF;
@@ -16,7 +17,7 @@ pair<P,P> solve(vP v) {
 		if (i && v[i] == v[i-1]) return {v[i],v[i]};
 		for (; v[i].f-v[ind].f >= bes.f; ++ind) 
 			S.erase({v[ind].s,v[ind].f});
-		for (auto it = S.ub({v[i].s-bes.f,INF});
+		for (auto it = S.upper_bound({v[i].s-bes.f,INF});
 			it != end(S) && it->f < v[i].s+bes.f; ++it) {
 			P t = {it->s,it->f};
 			ckmin(bes,{abs(t-v[i]),{t,v[i]}});

@@ -6,17 +6,17 @@
  */
 
 template<int SZ> struct tree {
-    vector<pair<int, ll>> adj[SZ];
+    vector<pair<int, int>> adj[SZ];
     const static int LGSZ = 32-__builtin_clz(SZ-1);
-    pair<int, ll> ppar[SZ][LGSZ];
+    pair<int, int> ppar[SZ][LGSZ];
     int depth[SZ];
-    ll distfromroot[SZ];
+    int distfromroot[SZ];
     
     void addEdge(int u, int v, int d) {
         adj[u].PB(MP(v, d));
         adj[v].PB(MP(u, d));
     }
-    void dfs(int u, int dep, ll dis) {
+    void dfs(int u, int dep, int dis) {
         depth[u] = dep;
         distfromroot[u] = dis;
         for(auto& v: adj[u]) if(ppar[u][0].F != v.F) {
@@ -45,7 +45,7 @@ template<int SZ> struct tree {
         }
         return ppar[u][0].F;
     }
-    ll dist(int u, int v) {
+    int dist(int u, int v) {
         return distfromroot[u] + distfromroot[v] - 2*distfromroot[lca(u, v)];
     }
 };

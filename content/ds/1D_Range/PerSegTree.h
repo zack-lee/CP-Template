@@ -6,6 +6,8 @@
  * Verification: https://codeforces.com/contest/1090/problem/G
  */ 
 
+const int INF = 1e18;
+
 template<class T, int SZ> struct pseg {
 	static const int LIMIT = 10000000; // adjust
 	int l[LIMIT], r[LIMIT], nex = 0;

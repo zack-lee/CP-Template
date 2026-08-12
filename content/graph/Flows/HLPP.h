@@ -5,7 +5,7 @@
  */
 
 template <int SZ> struct HLPP {
-	typedef ll F; // flow type
+	typedef int F; // flow type
 	struct Edge { int to, rev; F f; };
 	const F INF = numeric_limits<F>::max();
 	

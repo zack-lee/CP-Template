@@ -6,9 +6,9 @@
 
 struct LC0 : deque<Line> { // linear time w/ additional assumptions
 	// for doubles, use inf = 1/.0, div(a,b) = a/b
-	const ll inf = LLONG_MAX;
-	ll div(ll a, ll b) { return a/b-((a^b) < 0 && a%b); } // floored division
-	ll bet(const Line& x, const Line& y) { // last x such that first line is better
+	const int inf = LLONG_MAX;
+	int div(int a, int b) { return a/b-((a^b) < 0 && a%b); } // floored division
+	int bet(const Line& x, const Line& y) { // last x such that first line is better
 		if (x.k == y.k) return x.m >= y.m ? inf : -inf;
 		return div(y.m-x.m,x.k-y.k);
 	}
@@ -29,13 +29,13 @@ struct LC0 : deque<Line> { // linear time w/ additional assumptions
 		}
 		push_front(L);
 	}
-	void add(ll k, ll m) { // assume line goes to one end of deque
+	void add(int k, int m) { // assume line goes to one end of deque
 		if (!size() || k <= front().k) addFront({k,m,0});
 		else assert(k >= back().k), addBack({k,m,0});
 	}
 	
 	int ord = 0; // 1 = increasing, -1 = decreasing
-	ll query(ll x) { 
+	int query(int x) { 
 		assert(ord);
 		if (ord == 1) { 
 			while (front().p < x) pop_front();

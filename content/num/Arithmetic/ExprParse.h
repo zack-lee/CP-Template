@@ -12,7 +12,7 @@ namespace ExprParse {
 		switch(c) {
 			case '+': return (x+y)%MOD;
 			case '-': return (x-y+MOD)%MOD;
-			case '*': return (ll)x*y%MOD;
+			case '*': return (int)x*y%MOD;
 			default: exit(5);
 		}
 	}

@@ -9,7 +9,7 @@ template<int SZ, bool VALUES_IN_EDGES> struct HLD {
 	int N; vi adj[SZ];
 	int par[SZ], sz[SZ], depth[SZ];
 	int root[SZ], pos[SZ];
-	LazySegTree<ll,SZ> tree;
+	LazySegTree<int,SZ> tree;
 	void addEdge(int a, int b) { adj[a].pb(b), adj[b].pb(a); }
 	
 	void dfs_sz(int v = 1) {
@@ -50,8 +50,8 @@ template<int SZ, bool VALUES_IN_EDGES> struct HLD {
 	void modifySubtree(int v, int val) { // add val to vertices/edges in subtree
 		tree.upd(pos[v]+VALUES_IN_EDGES,pos[v]+sz[v]-1,val);
 	}
-	ll queryPath(int u, int v) { // query sum of path
-		ll res = 0; processPath(u, v, [this, &res](int l, int r) { res += tree.qsum(l, r); });
+	int queryPath(int u, int v) { // query sum of path
+		int res = 0; processPath(u, v, [this, &res](int l, int r) { res += tree.qsum(l, r); });
 		return res;
 	}
 };

@@ -7,7 +7,7 @@
  */
 
 template<int SZ> struct Dinic {
-	typedef ll F; // flow type
+	typedef int F; // flow type
 	struct Edge { int to, rev; F flow, cap; };
 	
 	int N,s,t;

@@ -12,7 +12,8 @@ template<class T> T poll(pqg<T>& x) {
 }
 
 template<int SZ> struct mcmf { 
-	typedef ll F; typedef ll C;
+	typedef int F; typedef int C;
+	static const int INF = 1e18;
 	struct Edge { int to, rev; F flow, cap; C cost; int id; };
 	vector<Edge> adj[SZ];
 	void addEdge(int u, int v, F cap, C cost) {

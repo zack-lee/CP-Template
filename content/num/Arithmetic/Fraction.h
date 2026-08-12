@@ -5,14 +5,14 @@
  */
 
 struct frac {
-	ll n,d;
+	int n,d;
 	frac() { n = 0, d = 1; }
-	frac(ll _n, ll _d) {
+	frac(int _n, int _d) {
 		n = _n, d = _d;
-		ll g = __gcd(n,d); n /= g, d /= g;
+		int g = __gcd(n,d); n /= g, d /= g;
 		if (d < 0) n *= -1, d *= -1;
 	}
-	frac(ll _n) : frac(_n,1) {}
+	frac(int _n) : frac(_n,1) {}
 
 	friend frac abs(frac F) { return frac(abs(F.n),F.d); }
 

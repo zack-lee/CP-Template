@@ -7,10 +7,10 @@
 
 #include "Point.h"
 
-typedef ll T;
+typedef int T;
 
 typedef struct Quad* Q;
-typedef __int128_t lll; // (can be ll if coords are < 2e4)
+typedef __int128_t lll; // (can be int if coords are < 2e4)
 P arb(LLONG_MAX,LLONG_MAX); // not equal to any other point
 
 struct Quad {
@@ -23,7 +23,7 @@ struct Quad {
 
 // test if p is in the circumcircle
 bool circ(P p, P a, P b, P c) { 
-	ll ar = cross(a,b,c); assert(ar); if (ar < 0) swap(a,b);
+	int ar = cross(a,b,c); assert(ar); if (ar < 0) swap(a,b);
 	lll p2 = norm(p), A = norm(a)-p2,
 		B = norm(b)-p2, C = norm(c)-p2;
 	return cross(p,a,b)*C+cross(p,b,c)*A+cross(p,c,a)*B > 0;

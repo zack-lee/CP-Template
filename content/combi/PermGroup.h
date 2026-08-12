@@ -50,10 +50,10 @@ void updateX(const vi& cur, int k) {
 	}
 }
 
-ll order(vector<vi> gen) { 
+int order(vector<vi> gen) {
 	assert(sz(gen)); n = sz(gen[0]); F0R(i,n) g[i].clear(i);
 	trav(a,gen) ins(a,n-1); // insert perms into group one by one
-	ll tot = 1;
+	int tot = 1;
 	F0R(i,n) {
 		int cnt = 0; F0R(j,i+1) cnt += g[i].flag[j];
 		tot *= cnt;

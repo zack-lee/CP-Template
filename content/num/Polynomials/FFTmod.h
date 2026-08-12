@@ -7,7 +7,7 @@
 
 #include "FFT.h"
 
-vl multMod(const vl& a, const vl& b) { 
+vi multMod(const vi& a, const vi& b) { 
 	if (!min(sz(a),sz(b))) return {};
 	int s = sz(a)+sz(b)-1, n = 1<<size(s), cut = sqrt(MOD);
 	vcd roots(n); genRoots(roots);
@@ -25,12 +25,12 @@ vl multMod(const vl& a, const vl& b) {
 	}
 	fft(v1,roots,1), fft(v0,roots,1);
 	
-	vl ret(n);
+	vi ret(n);
 	F0R(i,n) {
-		ll V2 = (ll)round(v1[i].real()); // a1*b1
-		ll V1 = (ll)round(v1[i].imag())+(ll)round(v0[i].real()); // a0*b1+a1*b0
-		ll V0 = (ll)round(v0[i].imag()); // a0*b0
+		int V2 = (int)round(v1[i].real()); // a1*b1
+		int V1 = (int)round(v1[i].imag())+(int)round(v0[i].real()); // a0*b1+a1*b0
+		int V0 = (int)round(v0[i].imag()); // a0*b0
 		ret[i] = ((V2%MOD*cut+V1)%MOD*cut+V0)%MOD;
 	}
-	ret.rsz(s); return ret;
+	ret.resize(s); return ret;
 } // ~0.8s when sz(a)=sz(b)=1<<19

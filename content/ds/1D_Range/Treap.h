@@ -9,7 +9,7 @@ typedef struct tnode* pt;
 
 struct tnode {
 	int pri, val; pt c[2]; // essential
-	int sz; ll sum; // for range queries
+	int sz; int sum; // for range queries
 	bool flip; // lazy update
 
 	tnode (int _val) {
@@ -20,7 +20,7 @@ struct tnode {
 };
 
 int getsz(pt x) { return x?x->sz:0; }
-ll getsum(pt x) { return x?x->sum:0; }
+int getsum(pt x) { return x?x->sum:0; }
 
 pt prop(pt x) {
 	if (!x || !x->flip) return x;	

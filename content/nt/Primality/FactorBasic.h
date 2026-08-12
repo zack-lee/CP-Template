@@ -25,7 +25,7 @@ namespace factorBasic {
 	 * Euler's theorem: a^{\phi(p)}\equiv 1 (mod p), gcd(a,p)=1
 	 */
 
-	ll phi(ll x) {
+	int phi(int x) {
 		trav(a,factor(x)) x -= x/a.f;
 		return x;
 	}

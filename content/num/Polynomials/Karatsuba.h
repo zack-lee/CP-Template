@@ -10,7 +10,7 @@
 
 int size(int s) { return s > 1 ? 32-__builtin_clz(s-1) : 0; }
 
-void karatsuba(ll *a, ll *b, ll *c, ll *t, int n) {
+void karatsuba(int *a, int *b, int *c, int *t, int n) {
 	int ca = 0, cb = 0; F0R(i,n) ca += !!a[i], cb += !!b[i];
 	if (min(ca, cb) <= 1500/n) { // few numbers to multiply
 		if (ca > cb) swap(a, b);
@@ -27,10 +27,10 @@ void karatsuba(ll *a, ll *b, ll *c, ll *t, int n) {
 	}
 }
 
-vl conv(vl a, vl b) {
+vi conv(vi a, vi b) {
 	int sa = sz(a), sb = sz(b); if (!sa || !sb) return {};
-	int n = 1<<size(max(sa,sb)); a.rsz(n), b.rsz(n);
-	vl c(2*n), t(2*n); F0R(i,2*n) t[i] = 0; 
+	int n = 1<<size(max(sa,sb)); a.resize(n), b.resize(n);
+	vi c(2*n), t(2*n); F0R(i,2*n) t[i] = 0; 
 	karatsuba(&a[0], &b[0], &c[0], &t[0], n);
-	c.rsz(sa+sb-1); return c;
+	c.resize(sa+sb-1); return c;
 }

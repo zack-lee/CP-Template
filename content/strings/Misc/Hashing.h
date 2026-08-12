@@ -35,7 +35,7 @@ struct hsh {
 	vpmi pows, cum;
 	
 	void init(string _S) {
-		S = _S; pows.rsz(sz(S)), cum.rsz(sz(S)+1);
+		S = _S; pows.resize(sz(S)), cum.resize(sz(S)+1);
 		pows[0] = {1,1}; FOR(i,1,sz(S)) pows[i] = pows[i-1]*base;
 		F0R(i,sz(S)) {
 			int c = S[i]-'a'+1;
