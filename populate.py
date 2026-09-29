@@ -8,7 +8,6 @@ from shutil import copyfile
 #2 args is make n many in directory specified
 def main():
     f1 = '/root/CP-Template/template.cpp'
-    f2 = '/root/CP-Template/main.cpp'
     dirname = ""
     makedir = False
     print(len(sys.argv))
@@ -31,10 +30,7 @@ def main():
                 monka = False
             else:
                 exit()
-        with open("{}{}.cpp".format(dirname, chr(i+65)), "w") as f, open(f1,'r') as F1, open(f2,'r') as F2:
+        with open("{}{}.cpp".format(dirname, chr(i+65)), "w") as f, open(f1,'r') as F1:
             for line in F1:
                 f.write(line)
-            for line in F2:
-                f.write(line)
-
 main()
