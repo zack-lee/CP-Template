@@ -10,7 +10,7 @@ def to_snake_case(name):
 
 SOURCES = [
     ("content", {"cpp,c": [".h", ".cpp"], "python": [".py"]}),
-    ("Pyrival",  {"python": [".py"]}),
+    ("pyrival",  {"python": [".py"]}),
 ]
 OUTPUT = ".vscode/cp-templates.code-snippets"
 
@@ -35,10 +35,10 @@ for src_dir, scope_map in SOURCES:
             rel = os.path.relpath(filepath, src_dir)
             name = os.path.splitext(filename)[0]
 
-            prefix = to_snake_case(name) if src_dir == "Pyrival" else name
+            prefix = to_snake_case(name) if src_dir == "pyrival" else name
             if prefix in seen_prefixes and seen_prefixes[prefix] != filepath:
                 parent = os.path.basename(root)
-                prefix = f"{parent}/{to_snake_case(name) if src_dir == 'Pyrival' else name}"
+                prefix = f"{parent}/{to_snake_case(name) if src_dir == 'pyrival' else name}"
             seen_prefixes.setdefault(prefix, filepath)
 
             with open(filepath, "r", encoding="utf-8", errors="replace") as f:

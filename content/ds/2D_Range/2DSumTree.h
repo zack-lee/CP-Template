@@ -24,7 +24,7 @@ struct sumtreenode{
             n->val = val;
             return;
         }
-        
+
         int mid = (n->l + n->r)/2;
         if(pos > mid) {
             if(n->right == nullptr) n->right = new node(mid+1, n->r);
@@ -34,7 +34,7 @@ struct sumtreenode{
             if(n->left == nullptr) n->left = new node(n->l, mid);
             updN(n->left, pos, val);
         }
-        
+
         int s = 0;
         if(n->right != nullptr) s += n->right->val;
         if(n->left != nullptr) s += n->left->val;
@@ -47,11 +47,11 @@ struct sumtreenode{
         if(i2 < n->l || i1 > n->r) return 0;
         if(n->l == n->r) return n->val;
         if(n->l >= i1 && n->r <= i2) return n->val;
-        
+
         int s = 0;
         if(n->left != nullptr) s += queryN(n->left, i1, i2);
         if(n->right != nullptr) s += queryN(n->right, i1, i2);
-        
+
         return s;
     }
     int query(int i1, int i2) {
@@ -74,7 +74,7 @@ template<int w, int h> struct sumtree2d{
             n->upd(y, val);
             return;
         }
-        
+
         int mid = (n->l + n->r)/2;
         if(x > mid) {
             if(n->right == nullptr) n->right = new sumtreenode(mid+1, n->r, h);
@@ -84,7 +84,7 @@ template<int w, int h> struct sumtree2d{
             if(n->left == nullptr) n->left = new sumtreenode(n->l, mid, h);
             updN(n->left, x, y, val);
         }
-        
+
         int s = 0;
         if(n->left != nullptr) s += n->left->query(y, y);
         if(n->right != nullptr) s += n->right->query(y, y);
@@ -97,11 +97,11 @@ template<int w, int h> struct sumtree2d{
         if(x2 < n->l || x1 > n->r) return 0;
         if(n->l == n->r) return n->query(y1, y2);
         if(n->l >= x1 && n->r <= x2) return n->query(y1, y2);
-        
+
         int s = 0;
         if(n->left != nullptr) s += queryN(n->left, x1, y1, x2, y2);
         if(n->right != nullptr) s += queryN(n->right, x1, y1, x2, y2);
-        
+
         return s;
     }
     int query(int x1, int y1, int x2, int y2) {

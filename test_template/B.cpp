@@ -52,25 +52,25 @@ const ld EPS = 1e-7;
 const int MOD = 1e9+7;
 
 int POW(int b, int e) {
-	int r = 1;
-	while(e) {
-		if(e % 2 == 1) {
-			r *= b;
-			r %= MOD;
-		}
-		e /= 2;
-		b *= b;
-		b %= MOD;
-	}
-	return r;
+    int r = 1;
+    while(e) {
+        if(e % 2 == 1) {
+            r *= b;
+            r %= MOD;
+        }
+        e /= 2;
+        b *= b;
+        b %= MOD;
+    }
+    return r;
 }
 int gcd(int a, int b) {
-	if(b > a) return gcd(b,a);
-	if(b == 0) return a;
-	return gcd(b, a % b);
+    if(b > a) return gcd(b,a);
+    if(b == 0) return a;
+    return gcd(b, a % b);
 }
 int INV(int a) {
-	return POW(a, MOD-2);
+    return POW(a, MOD-2);
 }
 //Global Constants and Variables here
 
@@ -80,13 +80,13 @@ void solve() {
 }
 
 int32_t main() { FAST
-	mt19937 rng(chrono::steady_clock::now().time_since_epoch().count());
-	int N = 100'000'000;
-	int m = 3;
-	M00(i, N) {
-		dbg(i _ m);
-		if(i % 100'000 == 0) {
-			cout << i << endl;
-		}
-	}
+    mt19937 rng(chrono::steady_clock::now().time_since_epoch().count());
+    int N = 100'000'000;
+    int m = 3;
+    M00(i, N) {
+        dbg(i _ m);
+        if(i % 100'000 == 0) {
+            cout << i << endl;
+        }
+    }
 }

@@ -1,15 +1,15 @@
 /**
  * Description: 1D point update, range query
  * Time: O(\log N)
- * Source: 
-	* http://codeforces.com/blog/entry/18051
-	* KACTL
+ * Source:
+     * http://codeforces.com/blog/entry/18051
+     * KACTL
  * Verification: SPOJ Fenwick
  */
 
 template<class T> struct segtree {
     T identity = 0;
-	int SZ = 0;
+    int SZ = 0;
     T comb(T l, T r) {
         return gcd(l,r);
     }
@@ -18,8 +18,8 @@ template<class T> struct segtree {
     }
     vector<T> tree;
     segtree(int _SZ) {
-		SZ = _SZ;
-		tree.resize(2*SZ + 1);
+        SZ = _SZ;
+        tree.resize(2*SZ + 1);
         M00(i, 2*SZ+1) tree[i] = identity;
     }
     void upd(int pos, T val) {

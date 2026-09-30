@@ -3,14 +3,14 @@
  * Time: O(N\log N)
  * Source: Wikibooks, KACTL
  * Verification:
-	* https://open.kattis.com/problems/convexhull
+     * https://open.kattis.com/problems/convexhull
  */
 
 struct convexHull {
     set<pair<ld,ld>> dupChecker;
     vector<pair<ld,ld>> points;
     vector<pair<ld,ld>> dn, up, hull;
-    
+
     convexHull() {}
     bool cw(pd o, pd a, pd b) {
         return ((a.f-o.f)*(b.s-o.s)-(a.s-o.s)*(b.f-o.f) <= 0);
@@ -48,7 +48,7 @@ struct convexHull {
             }
             sort(dn.begin(), dn.end());
             sort(up.begin(), up.end());
-            
+
             for(int i = 0; i < up.size()-1; i++) hull.pb(up[i]);
             for(int i = sz(dn)-1; i > 0; i--) hull.pb(dn[i]);
         }

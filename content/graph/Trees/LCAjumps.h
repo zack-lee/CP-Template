@@ -11,7 +11,7 @@ template<int SZ> struct tree {
     pair<int, int> ppar[SZ][LGSZ];
     int depth[SZ];
     int distfromroot[SZ];
-    
+
     void addEdge(int u, int v, int d) {
         adj[u].PB(MP(v, d));
         adj[v].PB(MP(u, d));

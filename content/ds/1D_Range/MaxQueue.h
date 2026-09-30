@@ -1,9 +1,9 @@
 /**
-* Description: queue, but get() returns max element
-* Time: O(1)
-* Source: none
-* Verification: none
-*/
+ * Description: queue, but get() returns max element
+ * Time: O(1)
+ * Source: none
+ * Verification: none
+ */
 
 struct maxQueue {
     queue<int> q;

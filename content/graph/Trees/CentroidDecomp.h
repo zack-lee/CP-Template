@@ -2,9 +2,9 @@
  * Description: can support tree path queries and updates
  * Time: $O(N\log N)$
  * Source: own
- * Verification: 
-	* https://codeforces.com/contest/342/problem/E
-	* Triway Cup 2019 G
+ * Verification:
+     * https://codeforces.com/contest/342/problem/E
+     * Triway Cup 2019 G
  */
 
 template<int SZ> struct centroidDecomp {
@@ -15,7 +15,7 @@ template<int SZ> struct centroidDecomp {
     int par[SZ];
     vi child[SZ];
     int numNodes;
-    
+
     centroidDecomp(int num) {
         this->numNodes = num;
     }

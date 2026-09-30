@@ -1,13 +1,13 @@
 /**
-* Description: ?
-* Time: O(N\log N)
-* Source: SuprDewd, KACTL, majk, ekzhang
-* Verification: 
-	* http://usaco.org/index.php?page=viewproblem2&cpid=768
-		* https://pastebin.com/y2Z9FYr6
-	* https://open.kattis.com/problems/suffixsorting
-	* https://codeforces.com/contest/1090/problem/J
-*/
+ * Description: ?
+ * Time: O(N\log N)
+ * Source: SuprDewd, KACTL, majk, ekzhang
+ * Verification:
+     * http://usaco.org/index.php?page=viewproblem2&cpid=768
+         * https://pastebin.com/y2Z9FYr6
+     * https://open.kattis.com/problems/suffixsorting
+     * https://codeforces.com/contest/1090/problem/J
+ */
 
 template<int SZ> struct suffixArray {
     const static int LGSZ = 33-__builtin_clz(SZ-1);

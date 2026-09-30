@@ -33,7 +33,7 @@ template<class T, int SZ> struct segtree {
         }
         n->lazy = pushIdentity;
     }
-    
+
     node<T>* root;
     segtree() {
         int ub = 1;
@@ -66,7 +66,7 @@ template<class T, int SZ> struct segtree {
             push(n);
             return;
         }
-        
+
         updN(n->left, i1, i2, val);
         updN(n->right, i1, i2, val);
         n->val = comb(n->left->val, n->right->val);
@@ -78,11 +78,11 @@ template<class T, int SZ> struct segtree {
         propagate(n);
         if(i2 < n->l || i1 > n->r) return combIdentity;
         if(n->l >= i1 && n->r <= i2) return n->val;
-        
+
         T a = combIdentity;
         if(n->left != nullptr) a = comb(a, queryN(n->left, i1, i2));
         if(n->right != nullptr) a = comb(a, queryN(n->right, i1, i2));
-        
+
         return a;
     }
     T query(int i1, int i2) {

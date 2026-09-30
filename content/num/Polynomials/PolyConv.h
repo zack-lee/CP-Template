@@ -6,17 +6,17 @@
 #include "VecOp.h"
 #include "FFT.h"
 
-template<class T> bool small(const vector<T>& a, const vector<T>& b) { 
-	return (int)sz(a)*sz(b) <= 500000; // for small vectors, multiply directly
-} 
+template<class T> bool small(const vector<T>& a, const vector<T>& b) {
+    return (int)sz(a)*sz(b) <= 500000; // for small vectors, multiply directly
+}
 vmi smart(const vmi& a, const vmi& b) { return mult(a,b); }
 vcd smart(const vcd& a, const vcd& b) { return mult(a,b); }
 vi smart(const vi& a, const vi& b) {
-	auto X = smart(vcd(all(a)),vcd(all(b)));
-	vi x(sz(X)); F0R(i,sz(X)) x[i] = round(X[i].real());
-	return x;
+    auto X = smart(vcd(all(a)),vcd(all(b)));
+    vi x(sz(X)); F0R(i,sz(X)) x[i] = round(X[i].real());
+    return x;
 }
 template<class T> vector<T> conv(const vector<T>& a, const vector<T>& b) {
-	if (small(a,b)) return a*b;
-	return smart(a,b);
-} 
+    if (small(a,b)) return a*b;
+    return smart(a,b);
+}

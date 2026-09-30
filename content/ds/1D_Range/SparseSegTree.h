@@ -2,7 +2,7 @@
  * Description: Does not allocate storage for nodes with no data
  * Source: USACO Mowing the Field
  * Verification: ~
- */ 
+ */
 
 template<class T> struct node {
     T val;
@@ -26,7 +26,7 @@ template<class T, int SZ> struct segtree {
     void updLeaf(T& l, T val) {
         l = val;
     }
-    
+
     node<T>* root;
     segtree() {
         int ub = 1;
@@ -40,7 +40,7 @@ template<class T, int SZ> struct segtree {
             updLeaf(n->val, val);
             return;
         }
-        
+
         int mid = (n->l + n->r)/2;
         if(pos > mid) {
             if(n->right == nullptr) {
@@ -56,7 +56,7 @@ template<class T, int SZ> struct segtree {
             }
             updN(n->left, pos, val);
         }
-        
+
         T lv = (n->left == nullptr) ? identity : n->left->val;
         T rv = (n->right == nullptr) ? identity : n->right->val;
         n->val = comb(lv, rv);
@@ -68,11 +68,11 @@ template<class T, int SZ> struct segtree {
         if(i2 < n->l || i1 > n->r) return identity;
         if(n->l == n->r) return n->val;
         if(n->l >= i1 && n->r <= i2) return n->val;
-        
+
         T a = identity;
         if(n->left != nullptr) a = comb(a, queryN(n->left, i1, i2));
         if(n->right != nullptr) a = comb(a, queryN(n->right, i1, i2));
-        
+
         return a;
     }
     T query(int i1, int i2) {

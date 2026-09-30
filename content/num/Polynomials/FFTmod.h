@@ -1,36 +1,36 @@
 /**
  * Description: multiply two polynomials with arbitrary $MOD$
-	* ensures precision by splitting in half
+     * ensures precision by splitting in half
  * Source: KACTL, https://cp-algorithms.com/algebra/fft.html
  * Verification: see FFT
  */
 
 #include "FFT.h"
 
-vi multMod(const vi& a, const vi& b) { 
-	if (!min(sz(a),sz(b))) return {};
-	int s = sz(a)+sz(b)-1, n = 1<<size(s), cut = sqrt(MOD);
-	vcd roots(n); genRoots(roots);
-	
-	vcd ax(n), bx(n);
-	F0R(i,sz(a)) ax[i] = cd((int)a[i]/cut, (int)a[i]%cut); // ax(x)=a1(x)+i*a0(x)
-	F0R(i,sz(b)) bx[i] = cd((int)b[i]/cut, (int)b[i]%cut); // bx(x)=b1(x)+i*b0(x)
-	fft(ax,roots), fft(bx,roots);
-	
-	vcd v1(n), v0(n);
-	F0R(i,n) {
-		int j = (i ? (n-i) : i);
-		v1[i] = (ax[i]+conj(ax[j]))*cd(0.5,0)*bx[i]; // v1 = a1*(b1+b0*cd(0,1));
-		v0[i] = (ax[i]-conj(ax[j]))*cd(0,-0.5)*bx[i]; // v0 = a0*(b1+b0*cd(0,1));
-	}
-	fft(v1,roots,1), fft(v0,roots,1);
-	
-	vi ret(n);
-	F0R(i,n) {
-		int V2 = (int)round(v1[i].real()); // a1*b1
-		int V1 = (int)round(v1[i].imag())+(int)round(v0[i].real()); // a0*b1+a1*b0
-		int V0 = (int)round(v0[i].imag()); // a0*b0
-		ret[i] = ((V2%MOD*cut+V1)%MOD*cut+V0)%MOD;
-	}
-	ret.resize(s); return ret;
+vi multMod(const vi& a, const vi& b) {
+    if (!min(sz(a),sz(b))) return {};
+    int s = sz(a)+sz(b)-1, n = 1<<size(s), cut = sqrt(MOD);
+    vcd roots(n); genRoots(roots);
+
+    vcd ax(n), bx(n);
+    F0R(i,sz(a)) ax[i] = cd((int)a[i]/cut, (int)a[i]%cut); // ax(x)=a1(x)+i*a0(x)
+    F0R(i,sz(b)) bx[i] = cd((int)b[i]/cut, (int)b[i]%cut); // bx(x)=b1(x)+i*b0(x)
+    fft(ax,roots), fft(bx,roots);
+
+    vcd v1(n), v0(n);
+    F0R(i,n) {
+        int j = (i ? (n-i) : i);
+        v1[i] = (ax[i]+conj(ax[j]))*cd(0.5,0)*bx[i]; // v1 = a1*(b1+b0*cd(0,1));
+        v0[i] = (ax[i]-conj(ax[j]))*cd(0,-0.5)*bx[i]; // v0 = a0*(b1+b0*cd(0,1));
+    }
+    fft(v1,roots,1), fft(v0,roots,1);
+
+    vi ret(n);
+    F0R(i,n) {
+        int V2 = (int)round(v1[i].real()); // a1*b1
+        int V1 = (int)round(v1[i].imag())+(int)round(v0[i].real()); // a0*b1+a1*b0
+        int V0 = (int)round(v0[i].imag()); // a0*b0
+        ret[i] = ((V2%MOD*cut+V1)%MOD*cut+V0)%MOD;
+    }
+    ret.resize(s); return ret;
 } // ~0.8s when sz(a)=sz(b)=1<<19

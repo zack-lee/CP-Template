@@ -21,7 +21,7 @@ template<int SZ> struct rabinKarp {
             }
         }
     }
-	//inclusive [a,b]
+    //inclusive [a,b]
     tuple<int, int, int> hsh(int a, int b) {
         if(a == 0) return make_tuple(h[0][b], h[1][b], h[2][b]);
         tuple<int, int, int> ans;

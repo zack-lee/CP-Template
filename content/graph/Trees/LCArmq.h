@@ -10,7 +10,7 @@ template<int SZ> struct tree {
     const static int LGSZ = 33-__builtin_clz(SZ-1);
     int distfromroot[SZ];
     int depth[SZ], t, tin[SZ], RMQ[2*SZ-1][LGSZ], oldToNew[SZ], newToOld[SZ], numNodes;
-    
+
     void addEdge(int u, int v, int d) {
         adj[u].PB(MP(v, d));
         adj[v].PB(MP(u, d));

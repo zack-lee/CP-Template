@@ -8,5 +8,5 @@
 
 const pt orig(0, 0);
 bool cmp_ang(const pt& a, const pt& b) {
-  bool aorig = cmp_lex_i(orig, a), borig = cmp_lex_i(orig, b);
-  if (aorig ^ borig) return aorig; else return cp(a-orig, b-orig) > 0; }
+    bool aorig = cmp_lex_i(orig, a), borig = cmp_lex_i(orig, b);
+    if (aorig ^ borig) return aorig; else return cp(a-orig, b-orig) > 0; }

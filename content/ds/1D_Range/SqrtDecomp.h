@@ -9,7 +9,7 @@ struct sqrtDecomp {
     const static int blockSZ = 10; //change this
     int val[blockSZ*blockSZ];
     int lazy[blockSZ];
-    
+
     sqrtDecomp() {
         M00(i, blockSZ*blockSZ) val[i] = 0;
         M00(i, blockSZ) lazy[i] = 0;
