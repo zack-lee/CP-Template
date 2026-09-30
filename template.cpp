@@ -24,8 +24,8 @@ using namespace std;
 #define R0F(i, a) for (int i = (a) - 1; i >= 0; i--)
 
 #define FAST                                                                   \
-  ios::sync_with_stdio(0);                                                     \
-  cin.tie(0);
+    ios::sync_with_stdio(0);                                                   \
+    cin.tie(0);
 
 #ifdef DEBUG_ENABLED
 #define dbg(x) cerr << ">>> " << #x << " = " << x << endl;
@@ -37,14 +37,14 @@ using namespace std;
 #define int long long
 
 template <class T> bool ckmin(T &a, T b) {
-  bool B = a > b;
-  a = min(a, b);
-  return B;
+    bool B = a > b;
+    a = min(a, b);
+    return B;
 }
 template <class T> bool ckmax(T &a, T b) {
-  bool B = a < b;
-  a = max(a, b);
-  return B;
+    bool B = a < b;
+    a = max(a, b);
+    return B;
 }
 
 typedef long double ld;
@@ -68,5 +68,5 @@ const int MOD = 1e9 + 7;
 void solve() {}
 
 int32_t main() {
-  FAST mt19937 rng(chrono::steady_clock::now().time_since_epoch().count());
+    FAST mt19937 rng(chrono::steady_clock::now().time_since_epoch().count());
 }
